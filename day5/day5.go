@@ -1,15 +1,16 @@
 package day5
 
 import (
-	"adventofcode/dayhandler"
 	"fmt"
 	"slices"
 	"strconv"
 	"strings"
+
+	"adventofcode/dayhandler"
 )
 
 func init() {
-	dayhandler.DayHandlers["day5"] = dayHandler{}
+	dayhandler.DayHandlers["day5"] = newDayHandler()
 }
 
 type dayHandler struct {
@@ -19,7 +20,7 @@ func newDayHandler() dayHandler {
 	return dayHandler{}
 }
 
-func (d *dayHandler) BasicHandler(str string) error {
+func (d dayHandler) BasicHandler(str string) error {
 	strs := strings.Split(str, "\n\n")
 	rules := map[string][]string{}
 	for _, r := range strings.Split(strs[0], "\n") {
@@ -87,6 +88,6 @@ func filterUnneededVals(vals map[string][]string, needed []string) map[string][]
 	return neededVals
 }
 
-func (d *dayHandler) AdvancedHandler(str string) error {
+func (d dayHandler) AdvancedHandler(str string) error {
 	return fmt.Errorf("Unimplemented")
 }

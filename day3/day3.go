@@ -4,9 +4,22 @@ import (
 	"fmt"
 	"regexp"
 	"strconv"
+
+	"adventofcode/dayhandler"
 )
 
-func MulBasicHandler(str string) error {
+func init() {
+	dayhandler.DayHandlers["day3"] = newDayHandler()
+}
+
+type dayHandler struct {
+}
+
+func newDayHandler() dayHandler {
+	return dayHandler{}
+}
+
+func (d dayHandler) BasicHandler(str string) error {
 	re, err := regexp.Compile(`mul\((\d{1,3}),(\d{1,3})\)`)
 	if err != nil {
 		return err
@@ -29,7 +42,7 @@ func MulBasicHandler(str string) error {
 	return nil
 }
 
-func MulAdvancedHandler(str string) error {
+func (d dayHandler) AdvancedHandler(str string) error {
 	re, err := regexp.Compile(`mul\((\d{1,3}),(\d{1,3})\)|((do\(\)))|((don't\(\)))`)
 	if err != nil {
 		return err
