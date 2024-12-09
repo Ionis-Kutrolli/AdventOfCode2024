@@ -1,8 +1,9 @@
 package main
 
 import (
-	"adventofcode/day5"
 	"os"
+
+	"adventofcode/dayhandler"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 	// case "advanced":
 	// 	day3.MulAdvancedHandler(input)
 	// }
-	err = day5.BasicHandler(input)
+	err = dayhandler.DayHandlers[args[1]].BasicHandler(input)
 	if err != nil {
 		panic(err)
 	}
