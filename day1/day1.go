@@ -1,12 +1,13 @@
 package day1
 
 import (
-	"adventofcode/dayhandler"
 	"fmt"
 	"math"
 	"slices"
 	"strconv"
 	"strings"
+
+	"adventofcode/dayhandler"
 )
 
 func init() {
